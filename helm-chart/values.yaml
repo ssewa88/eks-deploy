@@ -1,0 +1,37 @@
+replicaCount: 1
+
+image:
+  repository: 305601180466.dkr.ecr.us-east-1.amazonaws.com/app-repository
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+
+container:
+  port: 3000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 200m
+    memory: 256Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 50
+
+serviceAccount:
+  create: false
+  automount: true
+
+ingress:
+  enabled: false
+
+httpRoute:
+  enabled: false
