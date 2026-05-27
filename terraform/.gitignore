@@ -1,0 +1,22 @@
+# Node
+node_modules/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# Kubernetes
+kubeconfig
+
+# Environment files
+.env
+
+# IDE
+.vscode/
